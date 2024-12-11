@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,79 +10,99 @@
     background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
     margin: 0;
     padding: 0;
+    line-height: 1.5;
+    color: #000;
   }
-  .container {
+
+  header {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #000;
+  }
+
+  main {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os cards */
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    grid-gap: 20px; /* Espaçamento entre os cards */
   }
+
   .box {
-    border: 2px solid #000; /* Cor da borda preta */
+    border: 1px solid #ccc;
     background-color: #fff;
     padding: 20px;
-    margin: 10px;
-    flex-basis: calc(50% - 40px); /* Adjust width minus padding and margin */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     transition: box-shadow 0.3s ease;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column; /* Alinha elementos em coluna */
-    align-items: center; /* Centraliza os elementos horizontalmente */
-    text-align: left; /* Alinha o texto à esquerda */
-    border-radius: 8px; /* Borda arredondada */
+    flex-direction: column;
+    align-items: center;
   }
+
   .box:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  .image-placeholder {
+
+  .box img {
     width: 100%;
-    height: 200px; /* Ajuste a altura da imagem */
-    background-color: #ddd;
-    margin-bottom: 20px; /* Espaçamento abaixo da imagem */
-    flex-shrink: 0;
-    border-top-left-radius: 8px; /* Arredonda apenas o canto superior esquerdo */
-    border-top-right-radius: 8px; /* Arredonda apenas o canto superior direito */
-    overflow: hidden; /* Esconde a parte da imagem fora do círculo */
-    background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente a área */
-    background-position: center; /* Centraliza a imagem */
+    height: 200px;          /* Altura fixa para as imagens */
+    object-fit: cover;      /* Mantém o enquadramento sem distorcer a imagem */
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
   }
+
   .text-content {
-    flex-grow: 1;
-    padding: 0 20px; /* Adiciona padding lateral */
-  }
-  h1 {
-    text-align: center; /* Centraliza o título */
-    color: #000; /* Cor do título preta */
-  }
-  h2 {
-    text-align: center; /* Centraliza o título dos cards */
-    margin-bottom: 10px; /* Adiciona espaço abaixo do título */
+    width: 100%;
   }
 
-  /* Media query para ajustar a largura dos cards em telas menores */
-  @media screen and (max-width: 600px) {
-    .box {
-      flex-basis: calc(100% - 40px); /* Largura total menos padding e margem */
+  .text-content h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+  }
+
+  .text-content ul {
+    padding-left: 20px;
+  }
+
+  .text-content ul li {
+    margin-bottom: 5px;
+  }
+
+  /* Em telas médias (entre 601px e 1023px), 2 colunas */
+  @media screen and (min-width: 601px) and (max-width: 1023px) {
+    main {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  h3 {
-      text-align: center; /* Alinha o título dos cards à esquerda em telas menores */
+  /* Em telas maiores (a partir de 1024px), 3 colunas */
+  @media screen and (min-width: 1024px) {
+    main {
+      grid-template-columns: repeat(3, 1fr);
     }
-  
+  }
+
 </style>
 </head>
 <body>
 
-<h1>Inclusão Digital</h1> <!-- Título centralizado -->
+<header>
+  <h1>Inclusão Digital</h1>
+</header>
 
-<div class="container">
+<main>
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://www.cursosabeline.com.br/webroot/cur_cache/curso-com-certificado-de-informatica-basica-1567603559-870-810b01c8.jpg');"></div>
+    <img src="https://www.cursosabeline.com.br/webroot/cur_cache/curso-com-certificado-de-informatica-basica-1567603559-870-810b01c8.jpg" alt="Imagem representando aula de informática básica" />
     <div class="text-content">
-      <h3>Sistema de Informação e Noções Gerais de Informática Básica</h3> <!-- Título centralizado -->
+      <h2>Sistema de Informação e Noções Gerais de Informática Básica</h2>
       <ul>
         <li>Definições Gerais</li>
         <li>História da Computação</li>
@@ -98,10 +118,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://www.ramalvirtual.com.br/uploads/images/2020/06/sistema-operacional-1593107306.jpg');"></div>
+    <img src="https://www.ramalvirtual.com.br/uploads/images/2020/06/sistema-operacional-1593107306.jpg" alt="Imagem representando o conceito de sistema operacional" />
     <div class="text-content">
-      <h3>Sistema Operacional</h3> <!-- Título centralizado -->
+      <h2>Sistema Operacional</h2>
       <ul>
         <li>Definições Gerais</li>
         <li>Operacionalização Sistêmica</li>
@@ -121,10 +142,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://img.freepik.com/vetores-gratis/vetor-de-icone-de-tecnologia-de-internet-sem-fio-em-neon-em-fundo-gradiente_53876-112183.jpg?w=360');"></div>
+    <img src="https://img.freepik.com/vetores-gratis/vetor-de-icone-de-tecnologia-de-internet-sem-fio-em-neon-em-fundo-gradiente_53876-112183.jpg?w=360" alt="Ícone representando Internet e Redes" />
     <div class="text-content">
-      <h3>Internet, Redes e Ameaças Virtuais</h3> <!-- Título centralizado -->
+      <h2>Internet, Redes e Ameaças Virtuais</h2>
       <ul>
         <li>Origem da Internet</li>
         <li>Estruturação de Redes</li>
@@ -145,10 +167,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://www.formamentis.it/wp-content/uploads/2020/06/microsoft-office-png-hd-ozellikle-windows-i-letim-sistemine-sahip-olan-hemen-her-bilgisayar-n-icerisinde-yer-alan-olmazsa-olmaz-microsoft-urunlerind.png');"></div>
+    <img src="https://www.formamentis.it/wp-content/uploads/2020/06/microsoft-office-png-hd-ozellikle-windows-i-letim-sistemine-sahip-olan-hemen-her-bilgisayar-n-icerisinde-yer-alan-olmazsa-olmaz-microsoft-urunlerind.png" alt="Ícone representando Microsoft Word" />
     <div class="text-content">
-      <h3>Microsoft Word</h3> <!-- Título centralizado -->
+      <h2>Microsoft Word</h2>
       <ul>
         <li>Apresentação Geral</li>
         <li>Ferramentas básicas</li>
@@ -167,10 +190,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://www.ro.senac.br/wp-content/uploads/2020/10/excel-avancado-1.jpg');"></div>
+    <img src="https://www.ro.senac.br/wp-content/uploads/2020/10/excel-avancado-1.jpg" alt="Ícone representando Microsoft Excel" />
     <div class="text-content">
-      <h3>Microsoft Excel</h3> <!-- Título centralizado -->
+      <h2>Microsoft Excel</h2>
       <ul>
         <li>Apresentação Geral</li>
         <li>Ferramentas e Conceitos Básicos</li>
@@ -202,10 +226,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://cdn.icon-icons.com/icons2/342/PNG/512/PowerPoint2_35733.png');"></div>
+    <img src="https://cdn.icon-icons.com/icons2/342/PNG/512/PowerPoint2_35733.png" alt="Ícone representando Microsoft PowerPoint" />
     <div class="text-content">
-      <h3>Microsoft Power Point</h3> <!-- Título centralizado -->
+      <h2>Microsoft Power Point</h2>
       <ul>
         <li>Apresentação Geral</li>
         <li>Ferramentas Básicas</li>
@@ -222,10 +247,11 @@
       </ul>
     </div>
   </div>
+
   <div class="box">
-    <div class="image-placeholder" style="background-image: url('https://pictures.brafton.com/The-smartphone-and-tablet-are-revolutionizing-the-way-doctors-run-their-practices_1964_40050659_0_14111215_500.jpg');"></div>
+    <img src="https://pictures.brafton.com/The-smartphone-and-tablet-are-revolutionizing-the-way-doctors-run-their-practices_1964_40050659_0_14111215_500.jpg" alt="Imagem representando dispositivos móveis (smartphone/tablet)" />
     <div class="text-content">
-      <h3>Mobile (Smartphone / Tablet)</h3> <!-- Título centralizado -->
+      <h2>Mobile (Smartphone / Tablet)</h2>
       <ul>
         <li>Apresentação das Funções Gerais do Aparelho</li>
         <li>Entendendo o Sistema Operacional</li>
@@ -242,7 +268,7 @@
       </ul>
     </div>
   </div>
-</div>
+</main>
 
 </body>
 </html>
